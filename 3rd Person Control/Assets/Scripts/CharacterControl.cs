@@ -7,7 +7,8 @@ public class CharacterControl : MonoBehaviour {
 
     private float speed = 5.45f;
     private float crossLimit = 0.689f;
-    private float yRotation;
+    [HideInInspector]
+    public  float yRotation;
 
     private Vector3 dir;
     private Rigidbody rb;
