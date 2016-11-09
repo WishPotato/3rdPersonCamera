@@ -27,7 +27,9 @@ public class CharacterControl : MonoBehaviour {
         this.transform.rotation = Quaternion.Euler(0.0f, yRotation, 0.0f);
 	}
 
-    // Fixes increased speed, by having two vectors greater or smaller than 0.
+    // --- <Summary Begin> ---
+    // Fixes increased speed, by having more than one vector greater or smaller than 0.
+    // --- <Summary End> ---
     void UpdatedDirection(Vector3 vec)
     {
         if (vec.x >= crossLimit && vec.z >= crossLimit)

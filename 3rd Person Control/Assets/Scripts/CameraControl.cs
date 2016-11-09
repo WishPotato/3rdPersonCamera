@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CameraControl : MonoBehaviour {
 
-
+    #region INIT STUFF
     public bool debugLines = true;
     public bool isColliding = false;
 
@@ -13,10 +13,8 @@ public class CameraControl : MonoBehaviour {
 
     public LayerMask collisionLayer;
 
-    [HideInInspector]
-    public Vector3[] adjustedClipPoints;
-    [HideInInspector]
-    public Vector3[] desiredClipPoints;
+    private Vector3[] adjustedClipPoints;
+    private Vector3[] desiredClipPoints;
 
     private float collisionSpaceSize = 3.41f;
     private float xRotation = 0.0f;
@@ -29,8 +27,9 @@ public class CameraControl : MonoBehaviour {
     private Vector3 targetOffSet = new Vector3(0.0f, 1.0f, 0.0f);
     private Vector3 destination = Vector3.zero;
     private Vector3 adjustedDestination = Vector3.zero;
+    #endregion
 
-	void Start () {
+    void Start () {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterControl>();
         camera = Camera.main;
         adjustedClipPoints = new Vector3[5];
@@ -79,8 +78,9 @@ public class CameraControl : MonoBehaviour {
             }
         }
     }
-
+    // --- <Summary Begin> ---
     // Checks for Collision for each clipping point
+    // --- <Summary End> ---
     bool CollisionDetected(Vector3[] clipPoint, Vector3 position)
     {
         for (int i = 0; i < clipPoint.Length; i++)
@@ -95,7 +95,9 @@ public class CameraControl : MonoBehaviour {
         return false;
     }
 
+    // --- <Summary Begin> ---
     // Updates the Clipping Points to proper location of the camera.
+    // --- <Summary End> ---
     public void UpdateClipPoints(Vector3 position, Quaternion rotation, ref Vector3[] intoArray)
     {
         if (camera == null)
@@ -122,7 +124,9 @@ public class CameraControl : MonoBehaviour {
         }
     }
 
+    // --- <Summary Begin> ---
     // Finds the shortest distance, for new location of camera and clipping points.
+    // --- <Summary End> ---
     public float GetAdjustedDistance(Vector3 position)
     {
         float distance = -1f;
